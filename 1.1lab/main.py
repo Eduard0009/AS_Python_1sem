@@ -1,2 +1,5 @@
-if __name__ == "__main__":
-    pass
+vse =  25
+r = 7
+p = 10
+izr = r/vse
+print(izr)
