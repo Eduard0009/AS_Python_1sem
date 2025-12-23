@@ -1,19 +1,23 @@
-def line_from_points(x1, y1, x2, y2):
-    if x1 == x2:
-        return ('vertical', x1)
-    k = (y2 - y1) / (x2 - x1)
-    b = y1 - k * x1
-    return (k, b)
+from lines_module import line_from_points, are_parallel, point_on_line
 
-def are_parallel(line1, line2):
-    if line1[0] == 'vertical' and line2[0] == 'vertical':
-        return True
-    if line1[0] == 'vertical' or line2[0] == 'vertical':
-        return False
-    return line1[0] == line2[0]
+x1 = float(input("Введите x1: "))
+y1 = float(input("Введите y1: "))
+x2 = float(input("Введите x2: "))
+y2 = float(input("Введите y2: "))
 
-def is_point_on_line(x, y, line):
-    if line[0] == 'vertical':
-        return x == line[1]
-    k, b = line
-    return y == k * x + b
+A1, B1, C1 = line_from_points(x1, y1, x2, y2)
+print("Уравнение первой прямой:", A1, "* x +", B1, "* y +", C1, "= 0")
+
+x3 = float(input("Введите x3: "))
+y3 = float(input("Введите y3: "))
+x4 = float(input("Введите x4: "))
+y4 = float(input("Введите y4: "))
+
+A2, B2, C2 = line_from_points(x3, y3, x4, y4)
+print("Уравнение второй прямой:", A2, "* x +", B2, "* y +", C2, "= 0")
+
+print("Прямые параллельны:", are_parallel(A1, B1, C1, A2, B2, C2))
+
+x = float(input("Введите x точки: "))
+y = float(input("Введите y точки: "))
+print("Точка принадлежит первой прямой:", point_on_line(x, y, A1, B1, C1))
