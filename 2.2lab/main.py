@@ -1,6 +1,10 @@
-def RectPS(x1, y1, x2, y2):
-    width = abs(x2 - x1)
-    height = abs(y2 - y1)
-    P = 2 * (width + height)
-    S = width * height
-    return P, S
+import math
+
+def RingS(R1, R2):
+    return math.pi * (R2**2 - R1**2)
+
+R1 = float(input("Введите внутренний радиус R1: "))
+R2 = float(input("Введите внешний радиус R2: "))
+
+S = RingS(R1, R2)
+print("Площадь кольца:", S)
